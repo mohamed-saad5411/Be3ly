@@ -1,12 +1,12 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import appLogo from '../../../../public/assets/img/b505edfd2aeaa2ce29ce9d95091419170afd5c42.jpg'
 import userLogo from '../../../../public/assets/img/a7aadc446db7e2dd06ad98f52b7f40b9c32faa43.jpg'
 import Link from 'next/link'
 
 export default function LatestProduct() {
-    let data: any = [{}, {}, {}, {}, {}, {}, {}, {}]
+    const data: any = [{}, {}, {}, {}, {}, {}, {}, {}]
     return <>
         <section className='my-8'>
             <h1 className='text-center my-3 mb-8'>Latest Product</h1>

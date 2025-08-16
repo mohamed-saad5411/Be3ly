@@ -5,7 +5,6 @@ import clickLogo from '../../../../public/assets/img/click logo.png'
 import securityLogo from '../../../../public/assets/img/security logo.png'
 import priceLogo from '../../../../public/assets/img/price logo.png'
 import whyLogo from '../../../../public/assets/img/f548660ec27ca1cecf4fb8ff726d51c31faefdbb.jpg'
-import Link from 'next/link'
 
 export default function WhyChoose() {
     return <>

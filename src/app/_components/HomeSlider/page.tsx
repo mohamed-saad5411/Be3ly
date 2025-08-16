@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Electronics from '../../../../public/assets/img/laptop.png'
 import sofa from '../../../../public/assets/img/sofa.png'
 import clothes from '../../../../public/assets/img/clothes.png'
@@ -15,7 +15,7 @@ import Link from "next/link";
 
 export default function HomeSlider() {
     const [display, setDisplay] = useState(true);
-    let data: any = [{
+    const data: any = [{
         name: 'Electronics',
         logo: Electronics
     },
