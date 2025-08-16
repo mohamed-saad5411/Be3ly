@@ -10,8 +10,8 @@ export default function Footer() {
 
   return <>
     {/* bg-base-200  */}
-    <footer className="footer grid grid-cols-5 bg-gray-100 sm:footer-horizontal text-base-content p-10">
-      <aside className='bg--300 col-span-2'>
+    <footer className="footer grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 bg-gray-100 sm:footer-horizontal text-base-content p-10">
+      <aside className='bg--300  sm:col-span-1 md:col-span-2'>
         <h1 className='text-[#09537C] font-[500] text-[30px]'><Link href={'/'}>Be3ly</Link></h1>
         <p>
           Follow Us :
@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
         </div>
       </aside>
-      <nav className='bg--400 col-span-1 '>
+      <nav className='bg--400 sm:col-span-1 '>
         <h6 className="footer-title">Categories</h6>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Vehicles</Link>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Electronics</Link>
@@ -35,7 +35,7 @@ export default function Footer() {
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Clothes</Link>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">All Categories</Link>
       </nav>
-      <nav className='bg--600 col-span-1 '>
+      <nav className='bg--600 sm:col-span-1 '>
         <h6 className="footer-title">Quick links</h6>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Contact us</Link>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Login</Link>
@@ -43,7 +43,7 @@ export default function Footer() {
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Website Terms And Conditions </Link>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Privacy Policy</Link>
       </nav>
-      <nav className='bg--700 col-span-1 '>
+      <nav className='bg--700 sm:col-span-1 '>
         <h6 className="font-bold text-gray-500 m-0 p-0">Language</h6>
         <div className="dropdown dropdown-hover mb-3">
           <div tabIndex={0} role="button" className="drop-down-footer">English <i className="fa-solid fa-sm ms-5 fa-arrow-down"></i></div>
