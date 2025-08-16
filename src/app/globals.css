@@ -1,5 +1,31 @@
+p{
+  @apply font-medium  
+}
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.container{
+  @apply w-11/12 m-auto
+}
+
+.btn{
+  @apply rounded-md px-3 py-2 text-lg font-semibold text-white shadow-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 
+}
+.drop-down-footer{
+  @apply rounded-md px-3 py-1 text-gray-500 border-[1px] border-gray-300 shadow-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 
+}
+
+h1,h2,h3,h4,h5{
+  @apply font-semibold  
+}
+h2{
+  @apply text-2xl  
+}
+h1{
+  @apply text-3xl  
+}
+
 
 :root {
   --background: #ffffff;
