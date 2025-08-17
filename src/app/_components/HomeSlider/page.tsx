@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Electronics from '../../../../public/assets/img/laptop.png'
 import sofa from '../../../../public/assets/img/sofa.png'
 import clothes from '../../../../public/assets/img/clothes.png'
@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function HomeSlider() {
     const [display, setDisplay] = useState(true);
+    const [noOfSli, setnoOfSli] = useState(1);
     
     const data: { id: number, name: string, logo: string | any }[] = [{
         id: 1,
@@ -66,10 +67,14 @@ export default function HomeSlider() {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: noOfSlides(),
+        slidesToShow: noOfSli,
         slidesToScroll: 1
     };
 
+    useEffect(() => {
+      setnoOfSli(noOfSlides())
+    }, [])
+    
     function noOfSlides() {
         if (window?.innerWidth > 600 && window?.innerWidth < 900) {
             return 2
