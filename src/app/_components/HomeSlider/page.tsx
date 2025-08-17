@@ -15,39 +15,49 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function HomeSlider() {
     const [display, setDisplay] = useState(true);
-    const data: any = [{
+    
+    const data: { id: number, name: string, logo: string | any }[] = [{
+        id: 1,
         name: 'Electronics',
         logo: Electronics
     },
     {
+        id: 2,
         name: 'Vehicle',
         logo: automotive
     },
     {
+        id: 3,
         name: 'Watches',
         logo: watch
     },
     {
+        id: 4,
         name: 'Jobs',
         logo: job
     },
     {
+        id: 5,
         name: 'Watches',
         logo: watch
     },
     {
+        id: 6,
         name: 'Clothes',
         logo: clothes
     },
     {
+        id: 7,
         name: 'Furniture',
         logo: sofa
     },
     {
+        id: 8,
         name: 'Clothes',
         logo: clothes
     },
     {
+        id: 9,
         name: 'Watches',
         logo: watch
     }]
@@ -60,16 +70,16 @@ export default function HomeSlider() {
         slidesToScroll: 1
     };
 
-function noOfSlides() {
-    if (window.innerWidth>600 && window.innerWidth<900) {
-        return 2
-    }else if (window.innerWidth>900 && window.innerWidth<1200) {
-        return 4
-    }else if (window.innerWidth>1200) {
-        return 7
+    function noOfSlides() {
+        if (window.innerWidth > 600 && window.innerWidth < 900) {
+            return 2
+        } else if (window.innerWidth > 900 && window.innerWidth < 1200) {
+            return 4
+        } else if (window.innerWidth > 1200) {
+            return 7
+        }
+        return 1
     }
-    return 1
-}
 
 
     return <>
@@ -85,8 +95,8 @@ function noOfSlides() {
                     }}
                 >
                     <Slider {...settings} className="text-start">
-                        {data.map((item:any) =>
-                            < div className="p-1">
+                        {data.map((item: any) =>
+                            < div key={item.id} className="p-1">
                                 <div className="bg-white m-auto transition-all duration-400 slide-item hover:bg-[#1CA49926] shadow-md h-[11.3rem] w-[9rem] flex items-center justify-center p-3 text-center rounded-md">
                                     <div className="flex items-center justify-center flex-col">
                                         <div className="h-[5rem] w-[5rem] transition-all slide-icon duration-400 hover:bg-white mb-3 bg-[#1CA49926] rounded-full flex items-center justify-center">

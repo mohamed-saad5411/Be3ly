@@ -6,15 +6,15 @@ import userLogo from '../../../../public/assets/img/a7aadc446db7e2dd06ad98f52b7f
 import Link from 'next/link'
 
 export default function LatestProduct() {
-    const data: any = [{}, {}, {}, {}, {}, {}, {}, {}]
+    const data:  { id: number }[] = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 9}]
     return <>
         <section className='my-8'>
             <h1 className='text-center my-3 mb-8'>Latest Product</h1>
             <div className="container bg--300 text-center">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 text-start xl:grid-cols-4 justify-center bg-green-">
-                    {data.map((ele: any) =>
+                    {data.map((ele:any) =>
 
-                        <div className="col-span-1 p-3 bg-amber- rounded-md ">
+                        <div key={ele.id} className="col-span-1 p-3 bg-amber- rounded-md ">
                             <div className='rounded-md overflow-hidden bg-white shadow-md'>
                                 <Link href={''}>
                                     <div className='relative overflow-hidden'>
