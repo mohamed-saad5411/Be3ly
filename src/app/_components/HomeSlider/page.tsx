@@ -10,7 +10,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+// import Link from "next/link";
 
 
 export default function HomeSlider() {

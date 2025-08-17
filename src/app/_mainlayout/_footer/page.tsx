@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import appLogo from '../../../../public/assets/img/app store.png'
 
