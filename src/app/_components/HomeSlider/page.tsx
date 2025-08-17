@@ -71,11 +71,11 @@ export default function HomeSlider() {
     };
 
     function noOfSlides() {
-        if (window.innerWidth > 600 && window.innerWidth < 900) {
+        if (window?.innerWidth > 600 && window?.innerWidth < 900) {
             return 2
-        } else if (window.innerWidth > 900 && window.innerWidth < 1200) {
+        } else if (window?.innerWidth > 900 && window?.innerWidth < 1200) {
             return 4
-        } else if (window.innerWidth > 1200) {
+        } else if (window?.innerWidth > 1200) {
             return 7
         }
         return 1
