@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",
+    "@headlessui/react": "^2.2.7",
+    "@heroicons/react": "^2.2.0",
     "daisyui": "^5.0.50",
     "next": "15.4.6",
     "react": "19.1.0",

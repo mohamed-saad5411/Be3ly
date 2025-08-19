@@ -1,6 +1,3 @@
-p{
-  @apply font-medium  
-}
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -15,18 +12,36 @@ p{
 .main-btn{
   @apply text-white bg-[#09537C]  hover:text-[#09537C] hover:bg-white
 }
+.btn-res{
+  @apply rounded-lg px-3 py-1 text-white bg-[#09537C]  hover:text-[#09537C] hover:bg-white text-[14px] font-semibold shadow-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 
+}
+.secondary-btn{
+  @apply text-[#09537C] bg-white  hover:text-white hover:bg-[#09537C]
+}
 .drop-down-footer{
   @apply rounded-md px-3 py-1 text-gray-500 border-[1px] border-gray-300 shadow-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 
 }
-
+/* border-[#b4babe]/50 */
 h1,h2,h3,h4,h5{
   @apply font-semibold  
 }
-h2{
+h3{
   @apply text-2xl  
 }
-h1{
+h2{
   @apply text-3xl  
+}
+.h2-res{
+  @apply text-[16px]  
+}
+.h3-res{
+  @apply text-[14px]  
+}
+h1{
+  @apply text-[40px]  
+}
+p{
+  @apply font-[400] text-lg   
 }
 
 
@@ -58,6 +73,10 @@ body {
 
 .slide-item:hover .slide-icon{
   background-color: white;
+}
+.nav-icon-container:hover .nav-icon{
+  color:  #397c94;
+  transform: scale(1.15);
 }
 
 .slick-prev::before ,.slick-next::before{

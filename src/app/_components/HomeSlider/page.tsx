@@ -10,12 +10,12 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import Link from "next/link";
+import Link from "next/link";
 
 
 export default function HomeSlider() {
     const [display, setDisplay] = useState(true);
-    const [noOfSli, setnoOfSli] = useState(1);
+    const [noOfSli, setnoOfSli] = useState(2);
     
     const data: { id: number, name: string, logo: string | any }[] = [{
         id: 1,
@@ -83,14 +83,12 @@ export default function HomeSlider() {
         } else if (window?.innerWidth > 1200) {
             return 7
         }
-        return 1
+        return 2
     }
 
 
     return <>
         <section className="bg-red- px-2  py-8">
-            <div className="text-center my-4">
-            </div>
             {/* == START SLIDER == */}
             <div className="slider-container  bg-gray-100 text-center">
                 <div className="bg- w-[85%] m-auto p-3 "
@@ -102,9 +100,9 @@ export default function HomeSlider() {
                     <Slider {...settings} className="text-start">
                         {data.map((item: any) =>
                             < div key={item.id} className="p-1">
-                                <div className="bg-white m-auto transition-all duration-400 slide-item hover:bg-[#1CA49926] shadow-md h-[11.3rem] w-[9rem] flex items-center justify-center p-3 text-center rounded-md">
+                                <Link href={`${item.name}`} className="bg-white m-auto transition-all duration-400 slide-item hover:bg-[#1CA49926] shadow-md h-[10rem] md:h-[11.3rem] w-[7rem] md:w-[9rem] flex items-center justify-center p-3 text-center rounded-md">
                                     <div className="flex items-center justify-center flex-col">
-                                        <div className="h-[5rem] w-[5rem] transition-all slide-icon duration-400 hover:bg-white mb-3 bg-[#1CA49926] rounded-full flex items-center justify-center">
+                                        <div className="md:h-[5rem] h-[4rem] w-[4rem] md:w-[5rem] transition-all slide-icon duration-400 hover:bg-white mb-3 bg-[#1CA49926] rounded-full flex items-center justify-center">
                                             <Image
                                                 src={item.logo}
                                                 // width={150}
@@ -116,13 +114,10 @@ export default function HomeSlider() {
                                         <h4 className="">{item.name}</h4>
                                         <p>200 Ads</p>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
 
                         )}
-
-
-
                     </Slider>
                 </div>
             </div >

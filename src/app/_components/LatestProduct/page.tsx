@@ -9,9 +9,9 @@ export default function LatestProduct() {
     const data:  { id: number }[] = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 9}]
     return <>
         <section className='my-8'>
-            <h1 className='text-center my-3 mb-8'>Latest Product</h1>
+            <h2 className='text-center mb-3'>Latest Product</h2>
             <div className="container bg--300 text-center">
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 text-start xl:grid-cols-4 justify-center bg-green-">
+                <div className="grid lg:grid-cols-3 text-start xl:grid-cols-4 justify-center bg-green-">
                     {data.map((ele:any) =>
 
                         <div key={ele.id} className="col-span-1 p-3 bg-amber- rounded-md ">

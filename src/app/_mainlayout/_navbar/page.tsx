@@ -1,49 +1,267 @@
 'use client'
-// import Link from 'next/link'
-import React from 'react'
+
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
+import usaFlagLogo from '../../../../public/assets/img/Flag_of_the_United_States.png'
+import Image from 'next/image'
 
 
+const navigation = [
+  { name: 'Home', href: '/', current: true },
+  { name: 'Electronics', href: '/Electronics', current: false },
+  { name: 'Watches', href: '/Watches', current: false },
+  { name: 'Furniture', href: '/Furniture', current: false },
+  { name: 'Jobs', href: '/Jobs', current: false },
+  { name: 'Clothes', href: '/Clothes', current: false },
+  { name: 'All Categories', href: '/', current: false },
+  { name: 'About Us', href: '/About', current: false },
+  { name: 'Contact Us', href: '/Contact', current: false },
+]
 
+function classNames(...classes: any) {
+  return classes.filter(Boolean).join(' ')
+}
 
-
-export default function Navbar() {
-
-
+export default function Example() {
   return <>
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
-      <div className="flex gap-2">
-        <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-        <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-            </div>
+
+    <Disclosure as="nav" className="relative shadow-sm bg--800">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className=" inset-y-0 w-[3rem] right-0 flex items-center sm:hidden">
+            {/* Mobile menu button*/}
+            <DisclosureButton className="group bg--500 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+              <span className="absolute " />
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon aria-hidden="true" className="block bg--700 size-6 group-data-open:hidden" />
+              <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
+            </DisclosureButton>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
-          </ul>
+          <div className="flex bg--400 md:w-[70%] items-center sm:items-stretch sm:justify-between">
+            <div className='flex items-center bg--500 w-[60%] md:hidden'>
+              <input type="text" placeholder="Search" className="input input-bordered border-[#b4babe]/50 in-focus-within:outline-0 focus:outline-0 in-focus-within:border-[#09537C] focus:border-[#09537C]  rounded-e-none w-full h-[34px] shadow-sm" />
+              <div className='h-[34px] cursor-pointer w-[34px] border-[1px] border-[#b4babe]/50 rounded-e-md bg-[#1CA49926] border-s-0 shadow-sm p-2 flex items-center justify-center'>
+                <i className="fa-solid fa-magnifying-glass fa-sm text-[#09537C]"></i>
+              </div>
+            </div>
+            <div  className="flex shrink-0 items-center bg--500 ">
+              <h1 className='text-[#09537C] top-0 left-0 text-shadow-lg ms-7 md:ms-0'><Link href={'/'}>Be3ly</Link></h1>
+            </div>
+            <div className='md:flex bg--400 hidden'>
+              <div className='-amber-200 flex items-center me-2 md:w-[475px] '>
+                <input type="text" placeholder="Search" className="input input-bordered border-[#b4babe]/50 in-focus-within:outline-0 focus:outline-0 in-focus-within:border-[#09537C] focus:border-[#09537C]  rounded-e-none w-full h-[34px] shadow-sm" />
+                <div className='h-[34px] cursor-pointer w-[34px] border-[1px] border-[#b4babe]/50 rounded-e-md bg-[#1CA49926] border-s-0 shadow-sm p-2 flex items-center justify-center'>
+                  <i className="fa-solid fa-magnifying-glass fa-sm text-[#09537C]"></i>
+                </div>
+              </div>
+              <div className='flex items-center me-2'>
+                <div className="dropdown dropdown-hover">
+                  <div tabIndex={0} role="button" className="drop-down-footer shadow-sm">Egypt<i className="fa-solid fa-sm ms-2 fa-arrow-down"></i></div>
+                  <ul tabIndex={0} className="dropdown-content bg-[#e4e4e4] menu  z-1 w-30 p-1 m-2 rounded-b-sm">
+                    <li><Link href={''}>Egypt</Link></li>
+
+                  </ul>
+                </div>
+              </div>
+              <div className='flex items-center me-2 cursor-pointer'>
+                <div className="dropdown dropdown-hover">
+                  <div tabIndex={0} role="button" className="-down-footer flex items-center -300">
+                    <span>English</span>
+                    <Image
+                      src={usaFlagLogo}
+                      // width={150} 
+                      // height={150}
+                      className='w-[2rem] ms-2'
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <ul tabIndex={0} className="dropdown-content bg-[#e4e4e4] menu  z-1 w-30 p-1 m-2 rounded-b-sm">
+                    <li><Link href={''}>Arabic</Link></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div className="absolute bg--400 inset-y-0 right-0 w-[30%] flex items-center justify-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+            {/* Profile dropdown */}
+            <Menu as="div" className="relative ml- md:flex hidden justify-evenly w-full bg--400">
+
+              <div className='sm:flex sm:items-center bg--500 grid grid-cols-3 items-center'>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-comment-dots"></i>
+                </div>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i>
+                </div>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i>
+                </div>
+
+              </div>
+              <button className='btn main-btn'>
+                <div className='flex items-center justify-center'>
+                  <div className='w-[1rem] h-[1rem] me-3 flex items-center justify-center border-[1px]'>
+                    <i className="fa-solid text-[10px] fa-plus"></i>
+                  </div>
+                  <p>Post an Ad</p>
+                </div>
+              </button>
+
+
+              {/* <MenuButton className="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <span className="absolute -inset-1.5" />
+                <span className="sr-only">Open user menu</span>
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  className="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10"
+                />
+              </MenuButton>
+
+              <MenuItems
+                transition
+                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+              >
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Your profile
+                  </a>
+                </MenuItem>
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Settings
+                  </a>
+                </MenuItem>
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Sign out
+                  </a>
+                </MenuItem>
+              </MenuItems> */}
+            </Menu>
+          </div>
         </div>
       </div>
-    </div>
+
+      <DisclosurePanel className="sm:hidden shadow-md rounded-md text-center bg--900">
+        <div className="space-y-1 px-2 pt-2 pb-3">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              aria-current={item.current ? 'page' : undefined}
+              className={classNames(
+                item.current ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
+                ' px-3 py-2 text-[16px] font-semibold block',
+              )}
+            >
+              {item.name == 'All Categories' ? <>
+                <div className="dropdown dropdown-hover">
+                  <div tabIndex={0} role="button" className="">All Categories <i className="fa-solid fa-sm ps-0.5 fa-arrow-down"></i></div>
+                  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2">
+                    {navigation.map((ele) => <li><Link href={ele.href}>{ele.name}</Link></li>)}
+
+                  </ul>
+                </div>
+              </> : item.name}
+            </Link>
+          ))}
+        </div>
+      </DisclosurePanel>
+    </Disclosure>
+
+    <Disclosure as="nav" className="relative shadow-sm block md:hidden bg--800">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className=" flex items-center bg--400 justify-between">
+
+          <div className=' bg--400 hidde w-full p-2'>
+            
+            <Menu as="div" className=" ml- flex mt-2 justify-between w-full bg--400">
+              <div className='sm:flex sm:items-center bg--500 grid grid-cols-5 items-center'>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-comment-dots"></i>
+                </div>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i>
+                </div>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i>
+                </div>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-solid text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-globe"></i>
+                </div>
+                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                  <i className="fa-solid text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-location-dot"></i>
+                </div>
+
+              </div>
+              <button className='btn-res'>
+                <div className='flex items-center justify-center'>
+                  <div className='w-[1rem] h-[1rem] me-1.5 flex items-center justify-center border-[1px]'>
+                    <i className="fa-solid text-[10px] fa-plus"></i>
+                  </div>
+                  <p className=''>Post an Ad</p>
+                </div>
+              </button>
+
+            </Menu>
+          </div>
+
+        </div>
+      </div>
 
 
+    </Disclosure>
 
+    <Disclosure as="nav" className="relative shadow-md bg--500 text-black">
+      <div className="mx-auto -100 max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative -200 flex items-center justify-between">
 
+          <div className="flex justify-center flex-1 -300">
+            <div className="hidden -400 sm:ml-6 sm:block">
+              <div className="flex space-x-4">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    aria-current={item.current ? 'page' : undefined}
+                    className={classNames(
+                      item.current ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
+                      ' px-3 py-2 text-[16px] font-semibold',
+                    )}
+                  >
+                    {item.name == 'All Categories' ? <>
+                      <div className="dropdown dropdown-hover">
+                        <div tabIndex={0} role="button" className="">All Categories <i className="fa-solid fa-sm ps-0.5 fa-arrow-down"></i></div>
+                        <ul tabIndex={0} className="dropdown-content bg-[#e4e4e4] menu  z-1 w-30 p-1 m-2 rounded-b-sm">
+                          {navigation.map((ele) => <li><Link href={ele.href}>{ele.name}</Link></li>)}
+
+                        </ul>
+                      </div>
+                    </> : item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Disclosure>
   </>
+
 }
 
 
