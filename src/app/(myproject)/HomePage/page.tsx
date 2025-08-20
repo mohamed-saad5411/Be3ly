@@ -5,10 +5,10 @@ import WhyChoose from '@/app/_components/WhyChoose/page'
 import Header from '@/app/_components/Header/page'
 
 export default function HomePage() {
-    return <>
+    return <div className=''>
         <Header />
         <HomeSlider />
         <LatestProduct />
         <WhyChoose />
-    </>
+    </div>
 }

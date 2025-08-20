@@ -10,7 +10,7 @@ export default function Footer() {
 
   return <>
     {/* bg-base-200  */}
-    <footer className="footer grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 bg-gray-100 sm:footer-horizontal text-base-content p-10">
+    <footer className="footer grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 bg-white sm:footer-horizontal text-base-content p-10">
       <aside className='bg--300  sm:col-span-1 md:col-span-2'>
         <h1 className='text-[#09537C] font-[500] text-[30px]'><Link href={'/'}>Be3ly</Link></h1>
         <p>

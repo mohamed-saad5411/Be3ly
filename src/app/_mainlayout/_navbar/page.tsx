@@ -98,7 +98,7 @@ export default function Example() {
                   <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i>
                 </div>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
-                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i>
+                  <Link href={'/Login'}><i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i></Link>
                 </div>
 
               </div>
