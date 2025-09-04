@@ -16,7 +16,7 @@ export default function Login() {
             <div className="container ">
                 <div className="grid lg:grid-cols-2 justify-center items-center ">
 
-                    <div className="col-span-1 ">
+                    <div className="col-span-1 hidden md:block">
                         <div className='w-[90%] md:w-[80%] md:m-auto lg:m-0 lg:w-[580px] lg:rounded-tr-[7rem] rounded-br-lg rounded-tr-[4rem] bg-[#B4BABE80] h-[510px]'>
                             <div className=' w-[614px]'>
                                 <Image
@@ -30,18 +30,18 @@ export default function Login() {
                         </div>
                     </div>
 
-                    <div className="col-span-1  mt-14 lg:mt-0 ">
+                    <div className="col-span-1  md:mt-14 lg:mt-0 ">
                         <div className='container bg-white p-6 rounded-md shadow-md'>
                             <h2 className=''>Login</h2>
                             <div className=''>
                                 <div className=' w-full my-4 flex items-center justify-between '>
-                                    <button className='btn w-[48%] secondary-btn'>
+                                    <button className='md:btn w-[48%] btn-res md:secondary-btn'>
                                         <div className='flex items-center justify-between'>
                                             <i className="fa-brands fa-google me-1"></i>
                                             <p>Login with Google</p>
                                         </div>
                                     </button>
-                                    <button className='btn w-[48%] secondary-btn'>
+                                    <button className='md:btn w-[48%] btn-res md:secondary-btn'>
                                         <div className='flex items-center justify-between'>
                                             <i className="fa-brands me-1 fa-square-facebook"></i>
                                             <p>Login with Facebook</p>
@@ -52,11 +52,11 @@ export default function Login() {
                                     <div className='flex items-center justify-between'>
                                         <form className='bg--300 w-full'>
                                             <div className='mb-4  w-full'>
-                                                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><h4>Email</h4></label>
+                                                <label for="first_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Email</h4></label>
                                                 <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email ..." required />
                                             </div>
                                             <div className='  w-full'>
-                                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><h4>Password</h4></label>
+                                                <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Password</h4></label>
                                                 <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password ..." required />
                                             </div>
                                             <div className='mb-8 bg- flex items-center w-full'>

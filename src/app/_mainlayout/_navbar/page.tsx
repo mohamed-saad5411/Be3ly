@@ -5,6 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import usaFlagLogo from '../../../../public/assets/img/Flag_of_the_United_States.png'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 
 const navigation = [
@@ -24,8 +25,9 @@ function classNames(...classes: any) {
 }
 
 export default function Example() {
+  let passName = usePathname()
   return <>
-
+    {/* lg screen nav */}
     <Disclosure as="nav" className="relative shadow-sm bg--800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -45,7 +47,7 @@ export default function Example() {
                 <i className="fa-solid fa-magnifying-glass fa-sm text-[#09537C]"></i>
               </div>
             </div>
-            <div  className="flex shrink-0 items-center bg--500 ">
+            <div className="flex shrink-0 items-center bg--500 ">
               <h1 className='text-[#09537C] top-0 left-0 text-shadow-lg ms-7 md:ms-0'><Link href={'/'}>Be3ly</Link></h1>
             </div>
             <div className='md:flex bg--400 hidden'>
@@ -102,55 +104,15 @@ export default function Example() {
                 </div>
 
               </div>
-              <button className='btn main-btn'>
+              <Link href={'/AddPost/PostAd/AdInfo'} className='btn main-btn'>
                 <div className='flex items-center justify-center'>
                   <div className='w-[1rem] h-[1rem] me-3 flex items-center justify-center border-[1px]'>
                     <i className="fa-solid text-[10px] fa-plus"></i>
                   </div>
                   <p>Post an Ad</p>
                 </div>
-              </button>
+              </Link>
 
-
-              {/* <MenuButton className="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-                <span className="absolute -inset-1.5" />
-                <span className="sr-only">Open user menu</span>
-                <img
-                  alt=""
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  className="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10"
-                />
-              </MenuButton>
-
-              <MenuItems
-                transition
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-              >
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
-                  >
-                    Your profile
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
-                  >
-                    Settings
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
-                  >
-                    Sign out
-                  </a>
-                </MenuItem>
-              </MenuItems> */}
             </Menu>
           </div>
         </div>
@@ -188,7 +150,7 @@ export default function Example() {
         <div className=" flex items-center bg--400 justify-between">
 
           <div className=' bg--400 hidde w-full p-2'>
-            
+
             <Menu as="div" className=" ml- flex mt-2 justify-between w-full bg--400">
               <div className='sm:flex sm:items-center bg--500 grid grid-cols-5 items-center'>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
@@ -197,9 +159,9 @@ export default function Example() {
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i>
                 </div>
-                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                <Link href={'/Login'} className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i>
-                </div>
+                </Link>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-solid text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-globe"></i>
                 </div>
@@ -209,12 +171,14 @@ export default function Example() {
 
               </div>
               <button className='btn-res'>
-                <div className='flex items-center justify-center'>
-                  <div className='w-[1rem] h-[1rem] me-1.5 flex items-center justify-center border-[1px]'>
-                    <i className="fa-solid text-[10px] fa-plus"></i>
+                <Link href={'/AddPost/PostAd/AdInfo'}>
+                  <div className='flex items-center justify-center'>
+                    <div className='w-[1rem] h-[1rem] me-1.5 flex items-center justify-center border-[1px]'>
+                      <i className="fa-solid text-[10px] fa-plus"></i>
+                    </div>
+                    <p className=''>Post an Ad</p>
                   </div>
-                  <p className=''>Post an Ad</p>
-                </div>
+                </Link>
               </button>
 
             </Menu>
@@ -239,7 +203,7 @@ export default function Example() {
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
-                      item.current ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
+                      (passName == item.href) ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
                       ' px-3 py-2 text-[16px] font-semibold',
                     )}
                   >

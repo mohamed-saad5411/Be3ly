@@ -41,7 +41,10 @@ h1{
   @apply text-[40px]  
 }
 p{
-  @apply font-[400] text-lg   
+  @apply font-[500] text-[14px]   
+}
+.p-sm{
+  @apply font-[500] text-[12px]   
 }
 
 

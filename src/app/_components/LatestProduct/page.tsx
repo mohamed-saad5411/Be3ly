@@ -44,13 +44,13 @@ export default function LatestProduct() {
                                     </div>
                                     <div className='px-3 pt-3'>
                                         <div className='mb-2.5'>
-                                            <p>Vehicles</p>
-                                            <h4>BMW 5series GT car</h4>
-                                            <h2>Price : <span>500</span>$</h2>
+                                            <p className='text-gray-400'>Vehicles</p>
+                                            <p>BMW 5series GT car</p>
+                                            <h5>Price : <span>500</span>$</h5>
                                         </div>
                                         <div className='py-2.5 flex text-gray-500 text-[12px] justify-between border-t-gray-200 border-t-[0.5px] '>
-                                            <p className=''><i className="fa-solid fa-sm me-1 fa-location-dot"></i>Alexandria, Egypt</p>
-                                            <p className=''><i className="fa-solid fa-sm me-1 fa-clock"></i>Feb 18, 2023</p>
+                                            <p className='p-sm text-gray-400'><i className="fa-solid fa-sm me-1 fa-location-dot"></i>Alexandria, Egypt</p>
+                                            <p className='p-sm text-gray-400'><i className="fa-solid fa-sm me-1 fa-clock"></i>Feb 18, 2023</p>
                                         </div>
 
                                     </div>
