@@ -16,7 +16,7 @@ export default function LatestProduct() {
 
                         <div key={ele.id} className="col-span-1 p-3 bg-amber- rounded-md ">
                             <div className='rounded-md overflow-hidden bg-white shadow-md'>
-                                <Link href={''}>
+                                <Link href={'/Details'}>
                                     <div className='relative overflow-hidden'>
                                         <Image
                                             src={appLogo}

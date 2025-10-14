@@ -1,15 +1,37 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import loginLogo from '../../../../public/assets/img/login logo.jpg'
 import Link from 'next/link'
+import { useFormik } from 'formik'
+import axios from 'axios'
+import { useRouter } from 'next/navigation';
 
 
 
 export default function Register() {
+    const [isLoading, setisLoading] = useState(false)
+    let router = useRouter()
+    async function handleRegister(values) {
+        setisLoading(true)
+        let { data } = await axios.post('https://e-commerce-be-v2.vercel.app/api/v1/auth/signup', values)
+        if (data?.Message == "user is registered successfully") {
+            router.push('/Login')
+            setisLoading(false)
+            console.log(data);
 
+        }
+    }
 
+    let formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            password: ""
+        },
+        onSubmit: handleRegister
+    })
 
     return <>
         <section className='my-18 '>
@@ -50,29 +72,29 @@ export default function Register() {
                                 </div>
                                 <div className=' w-full my-4 '>
                                     <div className='flex items-center justify-between'>
-                                        <form className='bg--300 w-full'>
+                                        <form onSubmit={formik.handleSubmit} className='bg--300 w-full'>
                                             <div className='mb-4  w-full'>
                                                 <label for="full_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Full Name</h4></label>
-                                                <input type="text" id="full_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Name ..." required />
+                                                <input onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" id="full_name" name='name' value={formik.values.name} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Name ..." required />
                                             </div>
                                             <div className='mb-4  w-full'>
-                                                <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Email</h4></label>
-                                                <input type="text" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="example@gmail.com" required />
+                                                <label for="email" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Email</h4></label>
+                                                <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="example@gmail.com" required />
                                             </div>
                                             <div className=' mb-4 w-full'>
-                                                <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Password</h4></label>
-                                                <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="**************" required />
+                                                <label for="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Password</h4></label>
+                                                <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="**************" required />
                                             </div>
-                                            <div className=' w-full'>
-                                                <label for="confirmPassword" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Confirm Password</h4></label>
-                                                <input type="password" id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="**************" required />
-                                            </div>
+                                            {/* <div className=' w-full'>
+                                                <label for="confirmPassword" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Confirm Password</h4></label>
+                                                <input  value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} type="password" id="confirmPassword" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="**************" required />
+                                            </div> */}
                                             <div className='mb-8 bg- flex items-center w-full'>
                                                 <input type="checkbox" id="checkbox" />
-                                                <label for="checkbox" class="block ms-1 text-sm font-medium text-gray-900 dark:text-white">Keep me login</label>
+                                                <label for="checkbox" className="block ms-1 text-sm font-medium text-gray-900 dark:text-white">Keep me login</label>
                                             </div>
-                                            <button type="submit" class="btn main-btn w-full">Sign up</button>
-                              
+                                            {/* <button type="submit" className="btn main-btn w-full">Sign up</button> */}
+                                            {isLoading ? <button type='' className='btn main-btn w-full'><i className="fa-solid fa-lg fa-circle-notch fa-spin"></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn main-btn w-full'>Sign up</button>}
                                         </form>
 
                                     </div>
@@ -82,7 +104,7 @@ export default function Register() {
                                     <Link href={'/Login'} className='btn mt-1 w-full secondary-btn'>
                                         Login
                                     </Link>
-                                    
+
                                 </div>
                             </div>
 

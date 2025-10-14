@@ -27,19 +27,19 @@ export default function Footer() {
       </aside>
       <nav className='bg--400 sm:col-span-1 '>
         <h6 className="footer-title">Categories</h6>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Vehicles</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Electronics</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Watches</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Furniture</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Jobs</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Clothes</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">All Categories</Link>
+        <Link href={'/'} className="hover:text-[#09537C] transition-all duration-400">Vehicles</Link>
+        <Link href={'/Electronics'} className="hover:text-[#09537C] transition-all duration-400">Electronics</Link>
+        <Link href={'/Watches'} className="hover:text-[#09537C] transition-all duration-400">Watches</Link>
+        <Link href={'/Furniture'} className="hover:text-[#09537C] transition-all duration-400">Furniture</Link>
+        <Link href={'/Jobs'} className="hover:text-[#09537C] transition-all duration-400">Jobs</Link>
+        <Link href={'/Clothes'} className="hover:text-[#09537C] transition-all duration-400">Clothes</Link>
+        <Link href={'/'} className="hover:text-[#09537C] transition-all duration-400">All Categories</Link>
       </nav>
       <nav className='bg--600 sm:col-span-1 '>
         <h6 className="footer-title">Quick links</h6>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Contact us</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Login</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Sign up</Link>
+        <Link href={'/Contact'} className="hover:text-[#09537C] transition-all duration-400">Contact us</Link>
+        <Link href={'/Login'} className="hover:text-[#09537C] transition-all duration-400">Login</Link>
+        <Link href={'/Register'} className="hover:text-[#09537C] transition-all duration-400">Sign up</Link>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Website Terms And Conditions </Link>
         <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Privacy Policy</Link>
       </nav>

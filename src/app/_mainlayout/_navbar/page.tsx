@@ -94,10 +94,10 @@ export default function Example() {
 
               <div className='sm:flex sm:items-center bg--500 grid grid-cols-3 items-center'>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
-                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-comment-dots"></i>
+                  <Link className='p-0 m-0' href={'/AddPost/Messages'}><i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-comment-dots"></i></Link>
                 </div>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
-                  <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i>
+                  <Link className='p-0 m-0' href={'/AddPost/FavAds'}><i className="fa-regular pt-1.5 text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i></Link>
                 </div>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <Link href={'/Login'}><i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i></Link>

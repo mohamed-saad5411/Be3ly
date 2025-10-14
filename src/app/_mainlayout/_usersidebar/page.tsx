@@ -45,7 +45,7 @@ export default function Sidebar() {
         </div>
 
         <Disclosure as="nav" className="mb-4 bg--500 text-black">
-          <div className="flex bg-purple- me-auto flex-col space-x-4">
+          <div className="md:flex bg-purple- md:text-start text-center md:me-auto md:flex-col md:space-x-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -53,7 +53,7 @@ export default function Sidebar() {
                 aria-current={item.current ? 'page' : undefined}
                 className={classNames(
                   (passName == item.href) ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
-                  ' px-3 py-2 text-[14px] font-semibold',
+                  ' px-3 md:py-2 py-1 text-[14px] mx-0.5 m-4 md:m-0 rounded-sm bg-[#f1f1f1] md:bg-white font-semibold',
                 )}
               >
                 {item.icon}

@@ -19,7 +19,7 @@ export default function FavAds() {
 
                             <div key={ele.id} className="w-[290px] h-[320] col-span-1 p-3 bg-amber- rounded-md ">
                                 <div className='rounded-md overflow-hidden bg-white shadow-md'>
-                                    <Link href={''}>
+                                    <Link href={'/Details'}>
                                         <div className='relative overflow-hidden'>
                                             <Image
                                                 src={logo}
