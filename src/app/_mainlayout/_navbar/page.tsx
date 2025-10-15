@@ -153,21 +153,21 @@ export default function Example() {
 
             <Menu as="div" className=" ml- flex mt-2 justify-between w-full bg--400">
               <div className='sm:flex sm:items-center bg--500 grid grid-cols-5 items-center'>
-                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                <Link href={'/AddPost/Messages'} className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-comment-dots"></i>
-                </div>
-                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                </Link>
+                <Link href={'/AddPost/FavAds'} className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-heart"></i>
-                </div>
+                </Link>
                 <Link href={'/Login'} className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-user"></i>
                 </Link>
-                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                <Link href={'/'} className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-solid text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-globe"></i>
-                </div>
-                <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
+                </Link>
+                <Link href={'/'} className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-0.5 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <i className="fa-solid text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-location-dot"></i>
-                </div>
+                </Link>
 
               </div>
               <button className='btn-res'>
