@@ -1,4 +1,3 @@
-
 'use client'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
@@ -12,190 +11,118 @@ import watch from '../../../../public/assets/img/watch.png'
 import automotive from '../../../../public/assets/img/automotive.png'
 import job from '../../../../public/assets/img/job.jpg'
 
-
 export default function About() {
+    const data = Array.from({ length: 8 }, (_, i) => ({ id: i + 1 }))
 
-    const data: { id: number }[] = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 9 }]
+    const slidedata = [
+        { id: 1, name: 'Electronics', logo: Electronicss },
+        { id: 2, name: 'Vehicle', logo: automotive },
+        { id: 3, name: 'Watches', logo: watch },
+        { id: 4, name: 'Jobs', logo: job },
+        { id: 5, name: 'Watches', logo: watch },
+        { id: 6, name: 'Clothes', logo: clothes },
+        { id: 7, name: 'Furniture', logo: sofa },
+        { id: 8, name: 'Clothes', logo: clothes },
+        { id: 9, name: 'Watches', logo: watch }
+    ]
 
-    const [display, setDisplay] = useState(true);
-    const [noOfSli, setnoOfSli] = useState(2);
-
-    const slidedata: { id: number, name: string, logo: string | any }[] = [{
-        id: 1,
-        name: 'Electronics',
-        logo: Electronicss
-    },
-    {
-        id: 2,
-        name: 'Vehicle',
-        logo: automotive
-    },
-    {
-        id: 3,
-        name: 'Watches',
-        logo: watch
-    },
-    {
-        id: 4,
-        name: 'Jobs',
-        logo: job
-    },
-    {
-        id: 5,
-        name: 'Watches',
-        logo: watch
-    },
-    {
-        id: 6,
-        name: 'Clothes',
-        logo: clothes
-    },
-    {
-        id: 7,
-        name: 'Furniture',
-        logo: sofa
-    },
-    {
-        id: 8,
-        name: 'Clothes',
-        logo: clothes
-    },
-    {
-        id: 9,
-        name: 'Watches',
-        logo: watch
-    }]
-
+    const [noOfSli, setNoOfSli] = useState(2)
 
     useEffect(() => {
-        setnoOfSli(noOfSlides())
+        if (typeof window !== 'undefined') {
+            const updateSlides = () => {
+                const width = window.innerWidth
+                if (width > 600 && width < 900) setNoOfSli(2)
+                else if (width > 900 && width < 1200) setNoOfSli(4)
+                else if (width > 1200) setNoOfSli(7)
+                else setNoOfSli(2)
+            }
+            updateSlides()
+            window.addEventListener('resize', updateSlides)
+            return () => window.removeEventListener('resize', updateSlides)
+        }
     }, [])
 
-    function noOfSlides() {
-        if (window?.innerWidth > 600 && window?.innerWidth < 900) {
-            return 2
-        } else if (window?.innerWidth > 900 && window?.innerWidth < 1200) {
-            return 4
-        } else if (window?.innerWidth > 1200) {
-            return 7
-        }
-        return 2
-    }
-    return <>
+    return (
         <section className='my-8'>
-            <div className='container  grid lg:grid-cols-5'>
-                <aside>
-                    <div className='lg:col-span-1 text-start '>
-                        <div className='rounded-sm shadow-sm bg-white p-3'>
-                            <div className='flex mb-5 items-center justify-between'>
-                                <p className='parag-18 text-[#000000]'>Categories</p>
-                                <i className="fa-solid fa-angle-down"></i>
-                            </div>
-                            {slidedata.map((item: any) =>
-                                <div key={item.id} className="mb-4 ps-1">
-                                    <Link href={`/${item.name}`} className=" slide-item  flex items-center justify-start ">
-                                        <div className="flex bg items-center justify-start">
-                                            <div className="md:h-[2rem] me-2 h-[2rem] w-[2rem] md:w-[2rem] transition-all slide-icon duration-400 text-[#666666] hover:bg-black rounded-full flex items-center justify-center">
-                                                <Image
-                                                    src={item.logo}
-                                                    // width={150}
-                                                    // height={150}
-                                                    className='w-[70%]'
-                                                    alt="Picture of the author"
-                                                />
-                                            </div>
-                                            {/* <p className=" p-slider text-[#666666] transition-all duration-400 hover:text-black">{item.name}</p> */}
-                                            <p className={item.current ? 'p-slider  transition-all text-black duration-400 hover:text-black' : 'text-[#666666] '}>{item.name}</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )}
-
+            <div className='container grid lg:grid-cols-5 gap-6'>
+                {/* Sidebar */}
+                <aside className='lg:col-span-1'>
+                    <div className='rounded-sm shadow-sm bg-white p-3 mb-6'>
+                        <div className='flex mb-5 items-center justify-between'>
+                            <p className='parag-18 text-black'>Categories</p>
+                            <i className="fa-solid fa-angle-down"></i>
                         </div>
-
-                        <div className='rounded-sm shadow-sm my-6 bg-white p-3'>
-                            <div className='flex items-center justify-between'>
-                                <p className='parag-18 text-black'>Location</p>
-                                <i className="fa-solid fa-angle-down"></i>
+                        {slidedata.map(item => (
+                            <div key={item.id} className="mb-4">
+                                <Link href={`/${item.name}`} className="flex items-center">
+                                    <div className='h-8 w-8 me-2 flex items-center justify-center rounded-full bg-[#f0f0f0]'>
+                                        <Image
+                                            src={item.logo}
+                                            alt={item.name}
+                                            className='w-[70%] h-[70%]'
+                                        />
+                                    </div>
+                                    <p className='text-[#666]'>{item.name}</p>
+                                </Link>
                             </div>
+                        ))}
+                    </div>
+
+                    <div className='rounded-sm shadow-sm bg-white p-3 mb-6'>
+                        <div className='flex items-center justify-between'>
+                            <p className='parag-18 text-black'>Location</p>
+                            <i className="fa-solid fa-angle-down"></i>
                         </div>
+                    </div>
 
-                        <div className='rounded-sm shadow-sm my-6 bg-white p-3'>
-                            <div className='flex items-center justify-between'>
-                                <p className='parag-18 text-black'>price range</p>
-                                <i className="fa-solid fa-angle-down"></i>
-                            </div>
+                    <div className='rounded-sm shadow-sm bg-white p-3'>
+                        <div className='flex items-center justify-between'>
+                            <p className='parag-18 text-black'>Price Range</p>
+                            <i className="fa-solid fa-angle-down"></i>
                         </div>
                     </div>
                 </aside>
 
+                {/* Main Content */}
                 <div className='lg:col-span-4'>
-
-                    <div className="container bg--300 text-center">
-                        <h6 className='text-start mb-3 ps-3 h-main-item'>Latest Product</h6>
-                        <div className="grid lg:grid-cols-3 text-start justify-center bg-green-">
-                            {data.map((ele: any) =>
-
-                                <div key={ele.id} className="col-span-1 p-3 bg-amber- rounded-md ">
-                                    <div className='rounded-md overflow-hidden bg-white shadow-md'>
-                                        <Link href={'/Details'}>
-                                            <div className='relative overflow-hidden'>
-                                                <Image
-                                                    src={appLogo}
-                                                    // width={150}
-                                                    // height={150}
-                                                    className='rounded-t-md hover:scale-[1.1] transition-all duration-600'
-                                                    alt="Picture of the author"
-                                                />
-                                                <div className='flex items-center bottom-2 left-3  absolute'>
-                                                    <div className='h-[2rem] me-1.5  w-[2rem]'>
-                                                        <Image
-                                                            src={userLogo}
-
-                                                            className='rounded-full w-full h-full '
-                                                            alt="Picture of the author"
-                                                        />
-                                                    </div>
-                                                    <p className='text-white'>ahmed zaki</p>
-                                                </div>
-                                                <div className='flex bg-white top-2 right-3 absolute rounded-full'>
-                                                    <div className='h-[3rem] flex items-center justify-center cursor-pointer  w-[3rem]'>
-                                                        <i className="fa-regular fa-heart hover:text-[#09537C] text-gray-500 fa-xl"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className='px-3 pt-3'>
-                                                <div className='mb-2.5'>
-                                                    <p className='p-slider'>Vehicles</p>
-                                                    <p className='p-product-card'>BMW 5series GT car</p>
-                                                    <h6 className='h-slider'>Price : <span>500</span>$</h6>
-                                                </div>
-                                                <div className='py-2.5 flex text-gray-500 text-[12px] justify-between border-t-gray-200 border-t-[0.5px] '>
-                                                    <p className='p-sm p-location-card'><i className="fa-solid fa-sm me-1 fa-location-dot"></i>Alexandria, Egypt</p>
-                                                    <p className='p-sm p-location-card'><i className="fa-solid fa-sm me-1 fa-clock"></i>Feb 18, 2023</p>
-                                                </div>
-
-                                            </div>
-                                        </Link>
+                    <h6 className='text-start mb-3 ps-3 h-main-item'>Latest Product</h6>
+                    <div className="grid lg:grid-cols-3 gap-4">
+                        {data.map(ele => (
+                            <div key={ele.id} className="bg-white rounded-md shadow-md overflow-hidden">
+                                <Link href='/Details'>
+                                    <div className='relative'>
+                                        <Image
+                                            src={appLogo}
+                                            alt='Product'
+                                            className='rounded-t-md hover:scale-[1.1] transition-all duration-600'
+                                            width={500}
+                                            height={300}
+                                        />
+                                        <div className='absolute top-2 right-3 h-12 w-12 flex items-center justify-center rounded-full bg-white'>
+                                            <i className="fa-regular fa-heart hover:text-[#09537C] text-gray-500 fa-xl"></i>
+                                        </div>
+                                        <div className='absolute bottom-2 left-3 flex items-center'>
+                                            <Image src={userLogo} alt='User' className='rounded-full w-8 h-8 me-2'/>
+                                            <p className='text-white'>ahmed zaki</p>
+                                        </div>
                                     </div>
-                                </div>
-                            )}
-
-                        </div>
-                        <button className='btn main-btn mt-6 '>View More</button>
+                                    <div className='px-3 pt-3 pb-3'>
+                                        <p className='p-slider'>Vehicles</p>
+                                        <p className='p-product-card'>BMW 5series GT car</p>
+                                        <h6 className='h-slider'>Price : <span>500</span>$</h6>
+                                        <div className='py-2.5 flex justify-between text-gray-500 text-[12px] border-t border-gray-200'>
+                                            <p><i className="fa-solid fa-location-dot me-1"></i>Alexandria, Egypt</p>
+                                            <p><i className="fa-solid fa-clock me-1"></i>Feb 18, 2023</p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
                     </div>
+                    <button className='btn main-btn mt-6'>View More</button>
                 </div>
             </div>
         </section>
-
-
-
-    </>
-
-
+    )
 }
-
-
-
-
-

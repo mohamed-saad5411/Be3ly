@@ -1,7 +1,7 @@
 'use client'
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import usaFlagLogo from '../../../../public/assets/img/Flag_of_the_United_States.png'
 import Image from 'next/image'
