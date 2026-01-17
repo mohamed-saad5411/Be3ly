@@ -13,8 +13,8 @@ export default function Header() {
                     <div className="col-span-1  w-[454px] lg:mt-0 ">
                         <div className='container'>
                             {/* <h2 className='text-3xl text-[#09537C]'>Be3ly</h2> */}
-                            <h2 className='m-0 mt-2 mb-3 text-3xl'>Buy, Sell or Advertise anything <span>online</span></h2>
-                            <p className='my-8'>Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more.</p>
+                            <h6 className='m-0 mt-2 mb-3 text-3xl'>Buy, Sell or Advertise anything <span>online</span></h6>
+                            <p className='my-8 parag-18'>Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more.</p>
                             <div className=''>
                                 <button className='btn main-btn me-2'>Buy Now</button>
                                 <button className='btn secondary-btn'>Learn More</button>

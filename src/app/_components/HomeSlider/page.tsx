@@ -111,8 +111,8 @@ export default function HomeSlider() {
                                                 alt="Picture of the author"
                                             />
                                         </div>
-                                        <h4 className="">{item.name}</h4>
-                                        <p>200 Ads</p>
+                                        <h4 className="h-slider">{item.name}</h4>
+                                        <p className="p-slider">200 Ads</p>
                                     </div>
                                 </Link>
                             </div>

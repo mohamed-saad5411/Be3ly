@@ -6,18 +6,21 @@ import Link from 'next/link'
 import usaFlagLogo from '../../../../public/assets/img/Flag_of_the_United_States.png'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-
+import { useContext } from 'react'
+import { UserContext } from '@/app/Context/UserContext'
+// import {  } from "../../(myproject)/AddPost/PostAd";
+// import {  } from "../../(myproject)/Register";
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Electronics', href: '/Electronics', current: false },
-  { name: 'Watches', href: '/Watches', current: false },
-  { name: 'Furniture', href: '/Furniture', current: false },
-  { name: 'Jobs', href: '/Jobs', current: false },
-  { name: 'Clothes', href: '/Clothes', current: false },
-  { name: 'All Categories', href: '/', current: false },
-  { name: 'About Us', href: '/About', current: false },
-  { name: 'Contact Us', href: '/Contact', current: false },
+  { id: 1, name: 'Home', href: '/', current: true },
+  { id: 2, name: 'Electronics', href: '/Electronics', current: false },
+  { id: 3, name: 'Watches', href: '/Watches', current: false },
+  { id: 4, name: 'Furniture', href: '/Furniture', current: false },
+  { id: 5, name: 'Jobs', href: '/Jobs', current: false },
+  { id: 6, name: 'Clothes', href: '/Clothes', current: false },
+  { id: 7, name: 'All Categories', href: '/', current: false },
+  { id: 8, name: 'About Us', href: '/About', current: false },
+  { id: 9, name: 'Contact Us', href: '/Contact', current: false },
 ]
 
 function classNames(...classes: any) {
@@ -26,13 +29,18 @@ function classNames(...classes: any) {
 
 export default function Example() {
   let passName = usePathname()
+
+  let { userData } = useContext(UserContext)
+  // console.log(userData ,'navbaar');
+
+
   return <>
-    {/* lg screen nav */}
+    {/* lg screen up nav */}
     <Disclosure as="nav" className="relative shadow-sm bg--800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative bg--600 flex h-16 items-center justify-between">
+          {/* Mobile menu button*/}
           <div className=" inset-y-0 w-[3rem] right-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
             <DisclosureButton className="group bg--500 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
               <span className="absolute " />
               <span className="sr-only">Open main menu</span>
@@ -40,17 +48,18 @@ export default function Example() {
               <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
             </DisclosureButton>
           </div>
-          <div className="flex bg--400 md:w-[70%] items-center sm:items-stretch sm:justify-between">
+          {/* logo search location country*/}
+          <div className="flex b md:w-[70%] items-center sm:items-stretch sm:justify-between">
             <div className='flex items-center bg--500 w-[60%] md:hidden'>
               <input type="text" placeholder="Search" className="input input-bordered border-[#b4babe]/50 in-focus-within:outline-0 focus:outline-0 in-focus-within:border-[#09537C] focus:border-[#09537C]  rounded-e-none w-full h-[34px] shadow-sm" />
               <div className='h-[34px] cursor-pointer w-[34px] border-[1px] border-[#b4babe]/50 rounded-e-md bg-[#1CA49926] border-s-0 shadow-sm p-2 flex items-center justify-center'>
                 <i className="fa-solid fa-magnifying-glass fa-sm text-[#09537C]"></i>
               </div>
             </div>
-            <div className="flex shrink-0 items-center bg--500 ">
-              <h1 className='text-[#09537C] top-0 left-0 text-shadow-lg ms-7 md:ms-0'><Link href={'/'}>Be3ly</Link></h1>
+            <div className="flex  shrink-0 items-center bg--500 ">
+              <Link href={'/'} className=' ms-7 w-full top-0 left-0 logo-24 md:ms-0'>Be3ly</Link>
             </div>
-            <div className='md:flex bg--400 hidden'>
+            <div className='md:flex  hidden'>
               <div className='-amber-200 flex items-center me-2 md:w-[475px] '>
                 <input type="text" placeholder="Search" className="input input-bordered border-[#b4babe]/50 in-focus-within:outline-0 focus:outline-0 in-focus-within:border-[#09537C] focus:border-[#09537C]  rounded-e-none w-full h-[34px] shadow-sm" />
                 <div className='h-[34px] cursor-pointer w-[34px] border-[1px] border-[#b4babe]/50 rounded-e-md bg-[#1CA49926] border-s-0 shadow-sm p-2 flex items-center justify-center'>
@@ -87,11 +96,10 @@ export default function Example() {
             </div>
 
           </div>
-          <div className="absolute bg--400 inset-y-0 right-0 w-[30%] flex items-center justify-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
-            {/* Profile dropdown */}
+          {/* Profile */}
+          <div className="absolute bg-y inset-y-0 right-0 w-[30%] flex items-center justify-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <Menu as="div" className="relative ml- md:flex hidden justify-evenly w-full bg--400">
-
+              {userData ? 
               <div className='sm:flex sm:items-center bg--500 grid grid-cols-3 items-center'>
                 <div className='w-[2.3rem] col-span-1 nav-icon-container  h-[2.3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                   <Link className='p-0 m-0' href={'/AddPost/Messages'}><i className="fa-regular text-[#09537C] nav-icon font-extralight duration-400 transition-all fa-comment-dots"></i></Link>
@@ -104,7 +112,8 @@ export default function Example() {
                 </div>
 
               </div>
-              <Link href={'/AddPost/PostAd/AdInfo'} className='btn main-btn'>
+              : <></>}
+              <Link href={userData ? '/AddPost/PostAd/AdInfo' : '/Login' } className='btn main-btn'>
                 <div className='flex items-center justify-center'>
                   <div className='w-[1rem] h-[1rem] me-3 flex items-center justify-center border-[1px]'>
                     <i className="fa-solid text-[10px] fa-plus"></i>
@@ -118,7 +127,7 @@ export default function Example() {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden shadow-md rounded-md text-center bg--900">
+      <DisclosurePanel className="sm:hidden bg--300 shadow-md rounded-md text-center">
         <div className="space-y-1 px-2 pt-2 pb-3">
           {navigation.map((item) => (
             <Link
@@ -126,8 +135,8 @@ export default function Example() {
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
-                item.current ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
-                ' px-3 py-2 text-[16px] font-semibold block',
+                (passName == item.href) ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
+                ' px-3 py-2 lg-link block',
               )}
             >
               {item.name == 'All Categories' ? <>
@@ -145,6 +154,7 @@ export default function Example() {
       </DisclosurePanel>
     </Disclosure>
 
+    {/* Profile small */}
     <Disclosure as="nav" className="relative shadow-sm block md:hidden bg--800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className=" flex items-center bg--400 justify-between">
@@ -190,7 +200,8 @@ export default function Example() {
 
     </Disclosure>
 
-    <Disclosure as="nav" className="relative shadow-md bg--500 text-black">
+    {/* lg screen down nav */}
+    <Disclosure as="nav" className="relative bg--300 shadow-md bg--500 text-black">
       <div className="mx-auto -100 max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative -200 flex items-center justify-between">
 
@@ -198,25 +209,25 @@ export default function Example() {
             <div className="hidden -400 sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <Link
+                  <div
                     key={item.name}
-                    href={item.href}
+
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       (passName == item.href) ? ' text-[#09537C]' : 'text-black hover:text-[#09537C]',
-                      ' px-3 py-2 text-[16px] font-semibold',
+                      ' cursor-pointer px-3 py-2 text-[16px] font-semibold',
                     )}
                   >
                     {item.name == 'All Categories' ? <>
                       <div className="dropdown dropdown-hover">
                         <div tabIndex={0} role="button" className="">All Categories <i className="fa-solid fa-sm ps-0.5 fa-arrow-down"></i></div>
                         <ul tabIndex={0} className="dropdown-content bg-[#e4e4e4] menu  z-1 w-30 p-1 m-2 rounded-b-sm">
-                          {navigation.map((ele) => <li><Link href={ele.href}>{ele.name}</Link></li>)}
+                          {navigation.map((ele) => <li key={ele.id}><Link key={ele.id} href={ele.href}>{ele.name}</Link></li>)}
 
                         </ul>
                       </div>
                     </> : item.name}
-                  </Link>
+                  </div>
                 ))}
               </div>
             </div>
@@ -230,3 +241,52 @@ export default function Example() {
 
 
 
+// 'use client'
+
+// import { useContext } from 'react'
+// import { UserContext } from '@/app/Context/UserContext'
+// import { useRouter } from 'next/navigation'
+// import Link from 'next/link'
+
+// export default function Navbar() {
+//   const { userData, setUserData } = useContext(UserContext)
+//   const router = useRouter()
+
+//   const Logout = () => {
+//     localStorage.removeItem('userToken')
+//     setUserData(null)
+//     router.push('/Login')
+//   }
+
+
+//   return (
+//     <nav className="flex justify-between p-4 bg-gray-200">
+//       <div>
+//         {/* //   { id: 3, name: 'Watches', href: '/Watches', current: false },
+// //   { id: 4, name: 'Furniture', href: '/Furniture', current: false },
+// //   { id: 5, name: 'Jobs', href: '/Jobs', current: false },
+// //   { id: 6, name: 'Clothes', href: '/Clothes', current: false }, */}
+//         <Link href="/">Home</Link>
+//         <Link href="/Watches" className="ms-4">Watches</Link>
+//         <Link href="/Furniture" className="ms-4">Furniture</Link>
+//         <Link href="/Jobs" className="ms-4">Jobs</Link>
+//       </div>
+
+//       <div className="flex items-center gap-4">
+//         {userData ? (
+//           <>
+//             <button onClick={Logout} className="btn">
+//               Logout
+//             </button>
+//             <Link href="/AddPost/PostAd">Post Ad</Link>
+//           </>
+//         ) : (
+//           <>
+//             <Link href="/Login" className="btn">Login</Link>
+//             <Link href="/Register">Register</Link>
+//           </>
+//         )}
+//       </div>
+//     </nav>
+//   )
+// }

@@ -12,7 +12,7 @@ import automotive from '../../../../public/assets/img/automotive.png'
 import job from '../../../../public/assets/img/job.jpg'
 
 
-export default function Electronics() {
+export default function Vehicle() {
 
     const data: { id: number }[] = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 9 }]
 
@@ -21,14 +21,14 @@ export default function Electronics() {
 
     const slidedata: { id: number, name: string, logo: string | any }[] = [{
         id: 1,
-        current: true,
-        name: 'Electronics',
+        name: 'Vehicle',
+         name: 'Electronics',
         logo: Electronicss
     },
     {
         id: 2,
+        current: true,
         name: 'Vehicle',
-        current: false,
         logo: automotive
     },
     {

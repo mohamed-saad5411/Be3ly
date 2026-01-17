@@ -15,11 +15,12 @@ export default function Register() {
     let router = useRouter()
     async function handleRegister(values) {
         setisLoading(true)
-        let { data } = await axios.post('https://e-commerce-be-v2.vercel.app/api/v1/auth/signup', values)
-        if (data?.Message == "user is registered successfully") {
+        // let { data } = await axios.post('https://e-commerce-be-v2.vercel.app/api/v1/auth/signup', values)
+        let  {data}  = await axios.post('https://website-production-279d.up.railway.app/api/v1/auth/register', values)
+        if (data?.success) {
+            // console.log(data);
             router.push('/Login')
             setisLoading(false)
-            console.log(data);
 
         }
     }
@@ -54,7 +55,7 @@ export default function Register() {
 
                     <div className="col-span-1  md:mt-14 lg:mt-0 ">
                         <div className='container bg-white p-6 rounded-md shadow-md'>
-                            <h2 className=''>Sign up</h2>
+                            <h6 className='head-24'>Sign up</h6>
                             <div className=''>
                                 <div className=' w-full my-4 flex items-center justify-between '>
                                     <button className='md:btn btn-res w-[48%] md:secondary-btn'>
@@ -74,15 +75,15 @@ export default function Register() {
                                     <div className='flex items-center justify-between'>
                                         <form onSubmit={formik.handleSubmit} className='bg--300 w-full'>
                                             <div className='mb-4  w-full'>
-                                                <label for="full_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Full Name</h4></label>
+                                                <label for="full_name" class="block mb-1 head-16 text-gray-900 dark:text-white">Full Name</label>
                                                 <input onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" id="full_name" name='name' value={formik.values.name} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Name ..." required />
                                             </div>
                                             <div className='mb-4  w-full'>
-                                                <label for="email" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Email</h4></label>
+                                                <label for="email" className="block mb-1 head-16 text-gray-900 dark:text-white">Email</label>
                                                 <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="example@gmail.com" required />
                                             </div>
                                             <div className=' mb-4 w-full'>
-                                                <label for="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white"><h4>Password</h4></label>
+                                                <label for="password" className="block mb-1 head-16 text-gray-900 dark:text-white">Password</label>
                                                 <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="**************" required />
                                             </div>
                                             {/* <div className=' w-full'>

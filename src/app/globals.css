@@ -3,7 +3,7 @@
 
 
 .container{
-  @apply w-11/12 m-auto
+  @apply w-[100%] md:w-[720px] lg:w-[960px] xl:w-11/12 m-auto
 }
 
 .btn{
@@ -21,33 +21,85 @@
 .drop-down-footer{
   @apply rounded-md px-3 py-1 text-gray-500 border-[1px] border-gray-300 shadow-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 
 }
-/* border-[#b4babe]/50 */
+
+/* Heading & Paragraph & Links */
 h1,h2,h3,h4,h5{
-  @apply font-semibold  
+  @apply font-[500]  
 }
-.h4-400{
-  @apply font-[400]  
+.h-slider{
+  @apply text-[16px]  font-[600] text-[#1e1e1e]
 }
-h3{
-  @apply text-2xl  
+.head-24{
+  @apply text-[24px]  font-[600] text-[#1e1e1e]
 }
-h5{
-  @apply text-lg font-[500]
+.head-16{
+  @apply text-[16px]  font-[600] text-[#1e1e1e]
+}
+.h-main-item{
+  @apply text-[32px]  font-[600] text-[#1e1e1e]
+}
+
+.parag-24{
+  @apply text-[24px]  font-[500] text-[#1e1e1e]
+}
+.parag-20{
+  @apply text-[20px]  font-[500] text-[#1e1e1e]
+}
+.parag-18{
+  @apply text-[16px]  font-[400]
+}
+
+.p-slider{
+  @apply text-[14px]  font-[400] 
+}
+.p-product-card{
+  @apply text-[14px]  font-[500] text-[#1e1e1e]
+}
+.p-location-card{
+  @apply text-[12px]  font-[500] text-[#666666]
+}
+h1{
+  @apply text-[5rem]  
 }
 h2{
-  @apply text-3xl  
+  @apply text-[4.5rem]  
+}
+h3{
+  @apply text-[4rem]  
+}
+h4{
+  @apply text-[3.5rem]
+}
+h5{
+  @apply text-[3rem]
+}
+h6{
+  @apply text-[2.5rem] font-semibold
+}
+p{
+  @apply font-[500] text-[14px]   
+}
+
+.lg-link{
+  @apply font-[600] text-[18px]  
+}
+.logo-24{
+  @apply text-[24px]  font-[400] text-[#267E80] tracking-[-1.41px]
+}
+.logo-30{
+  @apply text-[30px]  font-[500] text-[#267E80]
+}
+/*  */
+
+
+.h4-400{
+  @apply font-[400]  
 }
 .h2-res{
   @apply text-[16px]  
 }
 .h3-res{
   @apply text-[14px]  
-}
-h1{
-  @apply text-[40px]  
-}
-p{
-  @apply font-[500] text-[14px]   
 }
 .p-sm{
   @apply font-[500] text-[12px]   

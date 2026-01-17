@@ -12,7 +12,9 @@ export default function Footer() {
     {/* bg-base-200  */}
     <footer className="footer grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 bg-white sm:footer-horizontal text-base-content p-10">
       <aside className='bg--300  sm:col-span-1 md:col-span-2'>
-        <h1 className='text-[#09537C] font-[500] text-[30px]'><Link href={'/'}>Be3ly</Link></h1>
+        <div className="flex shrink-0 items-center bg--500 ">
+          <h1 className=' top-0 left-0 logo-24 ms-7 md:ms-0'><Link href={'/'}>Be3ly</Link></h1>
+        </div>
         <p>
           Follow Us :
         </p>
@@ -26,25 +28,30 @@ export default function Footer() {
         </div>
       </aside>
       <nav className='bg--400 sm:col-span-1 '>
-        <h6 className="footer-title">Categories</h6>
-        <Link href={'/'} className="hover:text-[#09537C] transition-all duration-400">Vehicles</Link>
-        <Link href={'/Electronics'} className="hover:text-[#09537C] transition-all duration-400">Electronics</Link>
-        <Link href={'/Watches'} className="hover:text-[#09537C] transition-all duration-400">Watches</Link>
-        <Link href={'/Furniture'} className="hover:text-[#09537C] transition-all duration-400">Furniture</Link>
-        <Link href={'/Jobs'} className="hover:text-[#09537C] transition-all duration-400">Jobs</Link>
-        <Link href={'/Clothes'} className="hover:text-[#09537C] transition-all duration-400">Clothes</Link>
-        <Link href={'/'} className="hover:text-[#09537C] transition-all duration-400">All Categories</Link>
+        <h6 className=" parag-20">Categories</h6>
+        <div className='flex flex-col mt-2'>
+          <Link href={'/Vehicle'} className="my-1 hover:text-[#09537C] transition-all duration-400">Vehicles</Link>
+          <Link href={'/Electronics'} className="my-1 hover:text-[#09537C] transition-all duration-400">Electronics</Link>
+          <Link href={'/Watches'} className="my-1 hover:text-[#09537C] transition-all duration-400">Watches</Link>
+          <Link href={'/Furniture'} className="my-1 hover:text-[#09537C] transition-all duration-400">Furniture</Link>
+          <Link href={'/Jobs'} className="my-1 hover:text-[#09537C] transition-all duration-400">Jobs</Link>
+          <Link href={'/Clothes'} className="my-1 hover:text-[#09537C] transition-all duration-400">Clothes</Link>
+          <Link href={'/'} className="my-1 hover:text-[#09537C] transition-all duration-400">All Categories</Link>
+        </div>
+
       </nav>
       <nav className='bg--600 sm:col-span-1 '>
-        <h6 className="footer-title">Quick links</h6>
-        <Link href={'/Contact'} className="hover:text-[#09537C] transition-all duration-400">Contact us</Link>
-        <Link href={'/Login'} className="hover:text-[#09537C] transition-all duration-400">Login</Link>
-        <Link href={'/Register'} className="hover:text-[#09537C] transition-all duration-400">Sign up</Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Website Terms And Conditions </Link>
-        <Link href={''} className="hover:text-[#09537C] transition-all duration-400">Privacy Policy</Link>
+        <h6 className="parag-20">Quick links</h6>
+        <div className='flex flex-col mt-2'>
+          <Link href={'/Contact'} className="my-1 hover:text-[#09537C] transition-all duration-400">Contact us</Link>
+          <Link href={'/Login'} className="my-1 hover:text-[#09537C] transition-all duration-400">Login</Link>
+          <Link href={'/Register'} className="my-1 hover:text-[#09537C] transition-all duration-400">Sign up</Link>
+          <Link href={''} className="my-1 hover:text-[#09537C] transition-all duration-400">Website Terms And Conditions </Link>
+          <Link href={''} className="my-1 hover:text-[#09537C] transition-all duration-400">Privacy Policy</Link>
+        </div>
       </nav>
       <nav className='bg--700 sm:col-span-1 '>
-        <h6 className="font-bold text-gray-500 m-0 p-0">Language</h6>
+        <h6 className="parag-20 m-0 p-0">Language</h6>
         <div className="dropdown dropdown-hover mb-3">
           <div tabIndex={0} role="button" className="drop-down-footer">English <i className="fa-solid fa-sm ms-5 fa-arrow-down"></i></div>
           <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
@@ -52,7 +59,7 @@ export default function Footer() {
             <li><Link href={''}>Arabic</Link></li>
           </ul>
         </div>
-        <h6 className="font-bold text-gray-500 m-0 p-0">Be3ly Apps :</h6>
+        <h6 className="parag-20 m-0 p-0">Be3ly Apps :</h6>
 
         <Image
           src={appLogo}
@@ -61,6 +68,6 @@ export default function Footer() {
           alt="Picture of the author"
         />
       </nav>
-    </footer>
+    </footer >
   </>
 }

@@ -28,7 +28,7 @@ export default function WhyChoose() {
 
                     <div className="col-span-1 mt-14 lg:mt-0 bg--200 ">
                         <div className='container'>
-                            <h2 className='mb-4'>Why Choose  <span>Be3ly</span></h2>
+                            <h6 className='mb-4'>Why Choose  <span>Be3ly</span></h6>
                             <div className='sm:flex sm:items-center grid grid-cols-4 items-center'>
                                 <div className='w-[3rem] col-span-1  h-[3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                                     <Image
@@ -40,11 +40,11 @@ export default function WhyChoose() {
                                     />
                                 </div>
                                 <div className='col-span-3'>
-                                    <h4>Security</h4>
-                                    <p>We provide a security system to protect your data.</p>
+                                    <p className='parag-24'>Security</p>
+                                    <p className='parag-18'>We provide a security system to protect your data.</p>
                                 </div>
                             </div>
-                            <div className='sm:flex sm:items-center grid grid-cols-4 my-2 items-center'>
+                            <div className='sm:flex sm:items-center grid grid-cols-4 my-5 items-center'>
                                 <div className='w-[3rem] col-span-1 h-[3rem] me-3 flex items-center justify-center rounded-full bg-[#1CA49926]'>
                                     <Image
                                         src={priceLogo}
@@ -55,8 +55,8 @@ export default function WhyChoose() {
                                     />
                                 </div>
                                 <div className='col-span-3'>
-                                    <h4>Price</h4>
-                                    <p>Buy and sell anything at your preferred price.</p>
+                                    <p className='parag-24'>Price</p>
+                                    <p className='parag-18'>Buy and sell anything at your preferred price.</p>
                                 </div>
                             </div>
                             <div className='sm:flex sm:items-center grid grid-cols-4 items-center'>
@@ -70,8 +70,8 @@ export default function WhyChoose() {
                                     />
                                 </div>
                                 <div className='col-span-3'>
-                                    <h4>Easy way</h4>
-                                    <p>We make it simple and easy to meet all of your needs.</p>
+                                    <p className='parag-24'>Easy way</p>
+                                    <p className='parag-18'>We make it simple and easy to meet all of your needs.</p>
                                 </div>
                             </div>
 

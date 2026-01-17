@@ -6,6 +6,11 @@ import Link from 'next/link'
 import user from '../../../../public/assets/img/a7aadc446db7e2dd06ad98f52b7f40b9c32faa43.jpg'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { UserContext } from '@/app/Context/UserContext'
+import { useContext } from 'react'
+import { useRouter } from 'next/navigation';
+
+
 
 
 const navigation = [
@@ -25,6 +30,17 @@ function classNames(...classes: any) {
 
 export default function Sidebar() {
   let passName = usePathname()
+  const navigat = useRouter();
+
+  const { setUserData } = useContext(UserContext)
+
+  function Logout() {
+    localStorage.removeItem("userToken")
+    setUserData(null)
+    navigat.push('/Login')
+  }
+
+
   return <>
     {/* lg screen nav */}
     <aside className='md:p-4 mt-4 md:mt-0'>
@@ -64,7 +80,7 @@ export default function Sidebar() {
 
         </Disclosure>
         <div className='bg-red text-center my-4'>
-          <button className='btn '>Logout</button>
+          <button onClick={Logout} className='btn'>Logout</button>
         </div>
       </div>
 
